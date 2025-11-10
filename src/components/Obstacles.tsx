@@ -6,51 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import * as Icons from "@/components/icons";
-
-type Card = {
-  t: string;
-  d: string;
-  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-};
-
-const CARDS: Card[] = [
-  {
-    t: "نگرانی از هزینه‌های تبلیغات",
-    d: "برخی افراد ممکن است تصور کنند کمپین‌ها پرهزینه‌اند؛ با طراحی درست بازگشت سرمایه مثبت می‌شود.",
-    Icon: Icons.Expenses,
-  },
-  {
-    t: "ترس از پیچیدگی مدیریت",
-    d: "فرآیندها را ساده‌سازی و شفاف می‌کنیم تا مدیریت کمپین برای شما آسان باشد.",
-    Icon: Icons.FearOfManagementComplexity,
-  },
-  {
-    t: "تصور زمان‌بر بودن نتایج",
-    d: "با تنظیم KPI و گزارش‌گیری منظم، نتایج را سریع‌تر و قابل‌پیگیری می‌کنیم.",
-    Icon: Icons.Advertising,
-  },
-  {
-    t: "ناآگاهی از تاثیر تبلیغات",
-    d: "اثر تبلیغات را با داده‌های واقعی و داشبورد گزارش‌دهی نشان می‌دهیم.",
-    Icon: Icons.IgnoranceOfTheEffectOfAdvertising,
-  },
-  {
-    t: "نبود استراتژی مشخص",
-    d: "براساس اهداف کسب‌وکار شما استراتژی اجرا می‌چینیم و مسیر را مشخص می‌کنیم.",
-    Icon: Icons.LackOfClearStrategy,
-  },
-  {
-    t: "عدم تخصص تیم در تبلیغات",
-    d: "تیم ما تولید، اجرا و بهینه‌سازی را با کیفیت و مسئولیت‌پذیری بر عهده می‌گیرد.",
-    Icon: Icons.Advertising,
-  },
-  {
-    t: "دغدغه هدر رفتن بودجه",
-    d: "تقسیم‌بندی بودجه و تست A/B به کاهش هدررفت و افزایش بازدهی کمک می‌کند.",
-    Icon: Icons.WasteOfFunds,
-  },
-];
+import { CARDS } from "@/utils/cards";
 
 const EASE: Transition["ease"] = [0.22, 1, 0.36, 1];
 

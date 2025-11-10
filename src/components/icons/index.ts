@@ -9,3 +9,6 @@ export { default as WasteOfFunds } from "./WasteOfFunds";
 export { default as HamburgerIcon } from "./HamburgerIcon";
 export { default as SearchIcon } from "./SearchIcon";
 export { default as UserIcon } from "./UserIcon";
+export { default as MailIcon } from "./MailIcon";
+export { default as NameIcon } from "./NameIcon";
+export { default as PhoneIcon } from "./PhoneIcon";

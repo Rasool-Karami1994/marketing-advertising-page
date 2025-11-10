@@ -1,4 +1,3 @@
-// no "use client"
 import Image from "next/image";
 import HeroClient from "./HeroClient";
 
