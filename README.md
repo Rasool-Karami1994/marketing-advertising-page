@@ -1,5 +1,5 @@
 # Marketing & Advertising Campaigns – Frontend Task
-
+## **DEMO:** [https://marketing-advertising-page.vercel.app/]
 A Next.js 16 (App Router) app implementing:
 - **Hero** with motion
 - **Swiper** “Obstacles” carousel (autoplay + nav + pause-on-hover)
