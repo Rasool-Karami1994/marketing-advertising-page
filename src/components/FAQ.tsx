@@ -72,7 +72,7 @@ export default function FaqSection() {
                         className="
                           w-full h-12 md:h-[52px] px-4 md:px-6 py-2 md:py-4
                           flex items-center justify-between gap-4 text-right
-                          text-xs md:text-base font-bold text-ink
+                          text-xs md:text-base font-bold text-ink cursor-pointer
                         "
                       >
                         <span className="truncate">{it.q}</span>
@@ -84,7 +84,7 @@ export default function FaqSection() {
                           "
                           aria-hidden
                         >
-                          <span className="relative block w-3 md:w-[14px] h-[2px] bg-current">
+                          <span className="relative block w-3 md:w-3.5 h-0.5 bg-current">
                             <span
                               className={`absolute inset-0 transition-transform duration-200 ${
                                 open ? "scale-x-0" : "scale-x-100"
@@ -92,7 +92,7 @@ export default function FaqSection() {
                             />
                           </span>
                           <span
-                            className={`absolute block w-[2px] h-3 md:h-[14px] bg-current transition-transform duration-200 ${
+                            className={`absolute block w-0.5 h-3 md:h-3.5 bg-current transition-transform duration-200 ${
                               open ? "scale-y-0" : "scale-y-100"
                             }`}
                           />
@@ -106,7 +106,7 @@ export default function FaqSection() {
                         `}
                       >
                         <div className="overflow-hidden">
-                          <div className="px-4 md:px-5 pb-4 md:pb-5 text-[13.5px] md:text-[14px] leading-7 text-[var(--color-body)]">
+                          <div className="px-4 md:px-5 pb-4 md:pb-5 text-[13.5px] md:text-[14px] leading-7 text-body">
                             {it.a}
                           </div>
                         </div>

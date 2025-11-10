@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Marketing & Advertising Campaigns – Frontend Task
 
-## Getting Started
+A Next.js 16 (App Router) app implementing:
+- **Hero** with motion
+- **Swiper** “Obstacles” carousel (autoplay + nav + pause-on-hover)
+- **Consultation Form** with validation + async submit + toast
+- **FAQ** accordion
+- **Tailwind CSS v4**, **Framer Motion**, **Swiper**, **IRANSansXFaNum** font, optimized SVG icons
 
-First, run the development server:
+## Tech Stack
+- Next.js 16 (App Router) — `output: "standalone"`
+- React 19
+- Tailwind CSS v4
+- Framer Motion
+- Swiper.js
+- TypeScript
+- SVGO + inline React SVG icons
+
+## Getting Started (Local)
+```bash
+# Install deps (pnpm recommended)
+pnpm i        # or npm i
+
+# Dev
+pnpm dev      # http://localhost:3000
+
+# Lint
+pnpm lint
+
+# Type-check
+pnpm typecheck
+
+# Build & start
+pnpm build
+pnpm start    # http://localhost:3000
+````
+
+## Environment
+
+No required secrets. Optional:
+
+* `NEXT_TELEMETRY_DISABLED=1`
+
+If you add APIs, create `.env.local` and update `docker-compose.yml`.
+
+## Docker (Production Build)
+
+> Produces a minimal runtime image using Next’s **standalone** output.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Build
+docker build -t campaigns-web .
+
+# Run
+docker run --rm -p 3000:3000 campaigns-web
+
+# Or via Compose
+docker compose up --build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Health endpoint:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+GET /healthz  -> 200 ok
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure (key parts)
 
-## Learn More
+```
+app/
+  layout.tsx
+  page.tsx
+  healthz/route.ts        # health check
+  (sections)/
+    hero/
+    obstacles/
+    form/
+    faq/
+components/
+  icons/                  # React SVG icons (optimized by SVGO)
+  hero/
+  ...
+public/
+styles/
+  globals.css             # Tailwind v4 + design tokens
+next.config.ts            # output: "standalone"
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Styling & Tokens
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Tailwind v4 `@theme` in `globals.css` defines design tokens:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  * `--color-primary`, `--color-ink`, `--color-body`, `--color-surface`, `--color-ring`, etc.
+* Container:
 
-## Deploy on Vercel
+  * Mobile `padding-inline: 24px`
+  * Desktop `padding-inline: 120px`, `max-width: 1440px`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Icons Workflow
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Export raw SVGs from Figma → `raw-icons/`
+2. Optimize:
+
+   ```bash
+   npx svgo --config=./svgo.config.cjs -f ./raw-icons -o ./optimized-icons
+   ```
+3. Convert to React components (if you use the helper script):
+
+   ```bash
+   node scripts/convert-svgs-to-tsx.mjs
+   ```
+4. Import from `components/icons` and use with `fill="currentColor"` so color is controlled by CSS.
+
+## Fonts
+
+* `IRANSansXFaNum` loaded locally (via `next/font/local`) and set as `--font-iransansx-fanum` in `globals.css`.
+
+## Accessibility
+
+* All interactive elements have accessible names.
+* Accordion buttons use `aria-expanded`.
+* Respect `prefers-reduced-motion` in motion variants (pattern already included).
+
+## Troubleshooting
+
+* **Tailwind styles not applied**: Tailwind v4 requires `@import "tailwindcss";` in `globals.css` and that CSS imported in `app/layout.tsx`.
+* **Gradient/purple band missing**: Use Tailwind gradient utilities:
+  `bg-gradient-to-r from-[var(--color-primary-2)] to-[var(--color-primary)]`.
+* **Swiper nav overlaps/un-clickable**: Ensure nav buttons have higher z-index and `pointer-events-auto` (implemented).
+
