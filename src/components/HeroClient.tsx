@@ -77,7 +77,7 @@ export default function HeroClient({
         </p>
         <button
           type="button"
-          className="mt-4 lg:mt-8 h-10 lg:h-12 px-2 w-36 rounded-lg bg-primary text-white text-sm lg:text-lg font-semibold md:font-bold hover:bg-primary-2 transition"
+          className="mt-4 lg:mt-8 h-10 lg:h-12 px-2 w-36 rounded-lg bg-primary text-white text-sm lg:text-lg font-semibold md:font-bold hover:bg-primary-2 transition cursor-pointer"
         >
           {cta}
         </button>

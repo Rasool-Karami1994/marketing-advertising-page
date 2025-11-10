@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { CARDS } from "@/utils/cards";
+import { CARDS } from "@/utils/mock-data";
 
 const EASE: Transition["ease"] = [0.22, 1, 0.36, 1];
 

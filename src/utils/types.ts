@@ -16,3 +16,5 @@ export type Card = {
   d: string;
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
+export type QA = { q: string; a: string };
+
