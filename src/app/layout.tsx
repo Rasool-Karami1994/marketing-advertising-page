@@ -1,8 +1,16 @@
-import { iranSansFaNum } from "./fonts";
+import Header from "@/components/Header";
+import "./globals.css";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
 
-export const metadata = {
-  title: "Tech Task",
-  description: "Next.js 15 + Tailwind + Swiper",
+const iranSansFaNum = localFont({
+  src: [{ path: "./font/IranianSans.ttf", weight: "400", style: "normal" }],
+  variable: "--font-iransansx-fanum",
+  display: "swap",
+});
+export const metadata: Metadata = {
+  title: "کمپین‌های بازاریابی و تبلیغاتی",
+  description: "Landing page – task",
 };
 
 export default function RootLayout({
@@ -11,11 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fa" dir="rtl">
-      <body
-        className={`${iranSansFaNum.variable} min-h-dvh bg-white text-text-primary antialiased font-sans`}
-      >
-        <main className="relative">{children}</main>
+    <html lang="fa" dir="rtl" className={iranSansFaNum.variable}>
+      <body className="antialiased">
+        <Header />
+        <main>{children}</main>
+        <footer className="mt-10 md:mt-[101px] bg-black h-36 md:h-[365px]"></footer>
       </body>
     </html>
   );

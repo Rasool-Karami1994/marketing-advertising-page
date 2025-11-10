@@ -1,0 +1,11 @@
+export { default as Advertising } from "./Advertising";
+export { default as Expenses } from "./Expenses";
+export { default as FearOfManagementComplexity } from "./FearOfManagementComplexity";
+export { default as GrowthPlan } from "./GrowthPlan";
+export { default as IgnoranceOfTheEffectOfAdvertising } from "./IgnoranceOfTheEffectOfAdvertising";
+export { default as LackOfClearStrategy } from "./LackOfClearStrategy";
+export { default as Vectors } from "./Vectors";
+export { default as WasteOfFunds } from "./WasteOfFunds";
+export { default as HamburgerIcon } from "./HamburgerIcon";
+export { default as SearchIcon } from "./SearchIcon";
+export { default as UserIcon } from "./UserIcon";

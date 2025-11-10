@@ -1,12 +1,3 @@
-import Hero from "@/components/sections/Hero";
-
-
-export default function Home() {
-  return (
-    <div>
-      <main>
-       <Hero/>
-      </main>
-    </div>
-  );
+export default function Page() {
+  return <></>;
 }
